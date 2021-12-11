@@ -19,7 +19,7 @@ clib:
 	${MAKE} -C ${FTPATH} fclean
 
 so_long:
-	${CC} ${CFLAGS} ${SRCS} ${LIBRARIES} -o so_long.out -I ${INCLUDEFT} -I ${INCLUDEMLX} -L ${FTPATH} -L ${MLXPATH} && ./so_long.out ${MAP}
+	${CC} ${CFLAGS} ${SRCS} ${LIBRARIES} -o so_long.out -I ${INCLUDEFT} -I ${INCLUDEMLX} -L ${FTPATH} -L ${MLXPATH} && ${LEAKS} ./so_long.out ${MAP}
 
 clean:
 	${RM} ${EXEC}

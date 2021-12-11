@@ -42,6 +42,7 @@ int	move_to(int keycode, t_game *game)
 	}
 	if (keycode == 65307)
 	{
+		free_images(game);
 		free_all(game);
 		mlx_destroy_window(game->mlx, game->win);
 		mlx_loop_end(game->mlx);

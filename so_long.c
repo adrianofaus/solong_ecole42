@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		mlx_key_hook(game.win, move_to, &game);
 		mlx_loop_hook(game.mlx, load_game, &game);
 		mlx_loop(game.mlx);
-	}	
-	free_all(&game);
+	}
+	// free_all(&game);
 	return (0);
 }

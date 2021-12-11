@@ -124,5 +124,6 @@ char	validate_tile(char *tile, t_validate *position, t_game *game);
 int		error(char	*msg);
 void	free_all(t_game *game);
 void	print_map(t_game *game);
+void	free_images(t_game *game);
 
 #endif
