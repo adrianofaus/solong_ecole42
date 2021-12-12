@@ -38,9 +38,4 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->sprite.wall.img);
 	mlx_destroy_image(game->mlx, game->sprite.item.img);
 	mlx_destroy_image(game->mlx, game->sprite.exit.img);
-	free(game->sprite.down1.img);
-	free(game->sprite.tile.img);
-	free(game->sprite.wall.img);
-	free(game->sprite.item.img);
-	free(game->sprite.exit.img);
 }

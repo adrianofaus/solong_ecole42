@@ -71,7 +71,6 @@ int	map_gen(char *map, t_game *game, t_validate *position)
 		free_all(game);
  		return (error("It must have all the necessary items"));
 	}
-	// print_map(game);
 	close(fd);
 	return (1);
 }

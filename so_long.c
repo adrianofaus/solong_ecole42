@@ -23,9 +23,9 @@ int	main(int argc, char **argv)
 		game.mlx = mlx_init();
 		game.win = mlx_new_window(game.mlx, IMG_SIZE * game.x_axis, IMG_SIZE * game.y_axis, "LET's ROCK!");	
 		mlx_key_hook(game.win, move_to, &game);
+		get_images(&game);
 		mlx_loop_hook(game.mlx, load_game, &game);
 		mlx_loop(game.mlx);
 	}
-	// free_all(&game);
 	return (0);
 }

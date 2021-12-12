@@ -109,6 +109,7 @@ typedef struct s_game
 	t_sprite	sprite;
 	int			x_axis;
 	int			y_axis;
+	int			items;
 	t_tile		**tile_map;
 	t_validate	verify;
 }	t_game;
@@ -125,5 +126,6 @@ int		error(char	*msg);
 void	free_all(t_game *game);
 void	print_map(t_game *game);
 void	free_images(t_game *game);
+void	get_images(t_game *game);
 
 #endif

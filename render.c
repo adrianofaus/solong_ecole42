@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-static void get_images(t_game *game)
+void get_images(t_game *game)
 {
 	game->sprite.down1.img = mlx_xpm_file_to_image(game->mlx, "./sprites/down1.xpm", &(game->sprite.down1.width), &(game->sprite.down1.height));
 	game->sprite.tile.img = mlx_xpm_file_to_image(game->mlx, "./sprites/tile.xpm", &(game->sprite.tile.width), &(game->sprite.tile.height));
@@ -25,9 +25,7 @@ int	load_game(t_game *game)
 {
 	int	i;
 	int	j;
-	static int	flag = 0;
 
-	get_images(game);
 	i = 0;
 	while (i < game->y_axis)
 	{
@@ -55,14 +53,6 @@ int	load_game(t_game *game)
 			j++;
 		}
 		i++;
-	}
-	if (!flag)
-	{
-		printf(">: down x %c\n", game->sprite.down1.t_down);
-		printf(">: up x %c\n", game->sprite.down1.t_up);
-		printf(">: right x %c\n", game->sprite.down1.t_right);
-		printf(">: left x %c\n", game->sprite.down1.t_left);
-		flag += 1;
 	}
 	return (0);
 }
