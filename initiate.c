@@ -12,29 +12,49 @@
 
 #include "so_long.h"
 
-void	axis_init(char *map, t_game *game)
+// void	axis_init(char *map, t_game *game)
+// {
+// 	int		bytes_read;
+// 	char	buffer[1001];
+// 	char	*check;
+// 	int		fd;
+
+// 	fd = open(map, O_RDONLY);
+// 	ft_bzero(buffer, 1001);
+// 	bytes_read = read(fd, buffer, 1000);
+// 	while (bytes_read > 0)
+// 	{
+// 		check = ft_strchr(buffer, '\n');
+// 		if (check && !game->y_axis)
+// 			game->x_axis += (check - buffer);
+// 		else if (!check && !game->y_axis)
+// 			game->x_axis += 1000;
+// 		while (check)
+// 		{
+// 			game->y_axis++;
+// 			check = ft_strchr(&buffer[1 + check - buffer], '\n');
+// 		}
+// 		bytes_read = read(fd, buffer, 1000);
+// 	}
+// 	close(fd);
+// }
+
+void	axis_init(char	*map, t_game *game)
 {
-	int		bytes_read;
-	char	buffer[1001];
-	char	*check;
+	char	c;
 	int		fd;
+	int		bytes_read;
 
 	fd = open(map, O_RDONLY);
-	ft_bzero(buffer, 1001);
-	bytes_read = read(fd, buffer, 1000);
+	bytes_read = read(fd, &c, 1);
+	game->y_axis = 1;
 	while (bytes_read > 0)
 	{
-		check = ft_strchr(buffer, '\n');
-		if (check && !game->y_axis)
-			game->x_axis += (check - buffer);
-		else if (!check && !game->y_axis)
-			game->x_axis += 1000;
-		while (check)
-		{
+		if (c == '\n')
 			game->y_axis++;
-			check = ft_strchr(&buffer[1 + check - buffer], '\n');
-		}
-		bytes_read = read(fd, buffer, 1000);
+		if (game->y_axis == 1)
+			game->x_axis++;
+		bytes_read = read(fd, &c, 1);
 	}
 	close(fd);
 }

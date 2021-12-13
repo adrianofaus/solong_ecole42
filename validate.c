@@ -32,13 +32,13 @@ int	is_border(t_game *game)
 
 char	validate_tile(char *tile, t_game *game)
 {	
+	printf("%c", *tile);
 	if (!ft_strchr("01CEP\n", *tile))
 		return (error("Invalid char was found, please check the map"));
 	if (is_border(game) && *tile != '1' && *tile != '\n')
 		return (error("It must have walls around the map"));
 	if (*tile == 'C')
 		game->verify.collectable++;
-	//Refatorar este bloco destinado a erro de player para a função map_gen
 	if (*tile == 'P')
 	{
 		game->verify.player++;

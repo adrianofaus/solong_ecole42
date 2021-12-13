@@ -55,6 +55,7 @@ int	map_gen(char *map, t_game *game)
 	while (i < game->y_axis)
 	{
 		game->tile_map[i] = get_tiles(fd, game);
+		printf("\n");
 		if (!game->tile_map[i])
 		{	
 			free_all(game);

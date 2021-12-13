@@ -45,7 +45,7 @@ static char	*parse_line(char	**reminder)
 	return (line);
 }
 
-static char	*get_all(int fd, char *buffer, char **reminder, int bytes_to_read)
+static char	*get_all(int fd, char *buffer, char **reminder)
 {	
 	int		bytes_read;
 	char	*swapper;
@@ -53,7 +53,7 @@ static char	*get_all(int fd, char *buffer, char **reminder, int bytes_to_read)
 	bytes_read = 1;
 	while (!(ft_strchr(*reminder, '\n')) && bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, bytes_to_read);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
 			free_null(&buffer);
@@ -69,20 +69,20 @@ static char	*get_all(int fd, char *buffer, char **reminder, int bytes_to_read)
 	return (*reminder);
 }
 
-char	*get_next_line(int fd, int bytes_to_read)
+char	*get_next_line(int fd)
 {
 	static char		*reminder[MAX_FD];
 	char			*actual_line;
 	char			*buffer;
 
-	if (fd < 0 || bytes_to_read <= 0 || fd > MAX_FD)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
 		return (NULL);
-	buffer = (char *)malloc((bytes_to_read + 1) * sizeof(char));
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	if (!reminder[fd])
 		reminder[fd] = ft_strdup("");
-	reminder[fd] = get_all(fd, buffer, &reminder[fd], bytes_to_read);
+	reminder[fd] = get_all(fd, buffer, &reminder[fd]);
 	if (!reminder[fd])
 		return (NULL);
 	actual_line = parse_line(&reminder[fd]);
