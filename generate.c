@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-t_tile	*get_tiles(int fd, t_game *game, t_validate *position)
+t_tile	*get_tiles(int fd, t_game *game)
 {
 	t_tile	*tiles;
 	int		bytes_read;
@@ -23,27 +23,25 @@ t_tile	*get_tiles(int fd, t_game *game, t_validate *position)
 	bytes_read = read(fd, &c, 1);
 	if (!tiles || bytes_read <= 0)
 		return (NULL);
-	position->px = 0;
+	game->verify.px = 0;
 	j = 0;
-	while (bytes_read > 0 && position->px != game->x_axis)
+	while (bytes_read > 0 && game->verify.px != game->x_axis)
 	{	
-		tiles[j].type = validate_tile(&c, position, game);
+		tiles[j].type = validate_tile(&c, game);
 		if (tiles[j].type == 0)
 		{
 			free(tiles);
 			return (NULL);
 		}
-		position->px++;
+		game->verify.px++;
 		j++;
 		bytes_read = read(fd, &c, 1);
 	}
-	// printf("\n");
 	tiles[j].type = 0;
 	return (tiles);
 }
 
-//SUBSTITUIR POSITIONS POR I e J?
-int	map_gen(char *map, t_game *game, t_validate *position)
+int	map_gen(char *map, t_game *game)
 {
 	int		fd;
 	int		i;
@@ -53,20 +51,20 @@ int	map_gen(char *map, t_game *game, t_validate *position)
 	if (!game->tile_map || !fd)
 		return (0);
 	i = 0;
-	position->py = 0;
+	game->verify.py = 0;
 	while (i < game->y_axis)
 	{
-		game->tile_map[i] = get_tiles(fd, game, position);
+		game->tile_map[i] = get_tiles(fd, game);
 		if (!game->tile_map[i])
 		{	
 			free_all(game);
 			return (0);
 		}
-		position->py++;
+		game->verify.py++;
 		i++;
 	}
 	game->tile_map[i] = NULL;
-	if (!position->collectable || !position->exit || !position->player)
+	if (!game->verify.collectable || !game->verify.exit || !game->verify.player)
 	{
 		free_all(game);
  		return (error("It must have all the necessary items"));

@@ -85,6 +85,7 @@ typedef struct s_sprite
 	t_image		wall;
 	t_image		tile;
 	t_image		exit;
+	t_image		exit2;
 	t_image		item;
 	t_image		collectable;
 	t_vector	player_bf;
@@ -120,8 +121,8 @@ int		validate_file(int argc, char **file);
 int		game_init(char *map, t_game *game);
 int		move_to(int keycode, t_game *game);
 int		load_game(t_game *game);
-int		map_gen(char *map, t_game *game, t_validate *position);
-char	validate_tile(char *tile, t_validate *position, t_game *game);
+int		map_gen(char *map, t_game *game);
+char	validate_tile(char *tile, t_game *game);
 int		error(char	*msg);
 void	free_all(t_game *game);
 void	print_map(t_game *game);

@@ -39,23 +39,19 @@ void	axis_init(char *map, t_game *game)
 	close(fd);
 }
 
-t_validate	validator_init(void)
+void	validator_init(t_game *game)
 {
-	t_validate	validate_data;
-	
-	validate_data.px = 0;
-	validate_data.py = 1;
-	validate_data.exit = 0;
-	validate_data.collectable = 0;
-	validate_data.player = 0;
-	validate_data.item = 0;
-	return (validate_data);
+	game->verify.px = 0;
+	game->verify.py = 1;
+	game->verify.exit = 0;
+	game->verify.collectable = 0;
+	game->verify.player = 0;
+	game->verify.item = 0;
 }
 
 int	game_init(char *map, t_game *game)
 {
 	int			is_valid;
-	t_validate	position;
 
 	game->x_axis = 0;
 	game->y_axis = 0;	
@@ -64,7 +60,7 @@ int	game_init(char *map, t_game *game)
 		return (error("Map must have all items"));
 	printf(">: x_axis %d\n", game->x_axis);
 	printf(">: y_axis %d\n", game->y_axis);
-	position = validator_init();
-	is_valid = map_gen(map, game, &position);
+	validator_init(game);
+	is_valid = map_gen(map, game);
 	return (is_valid);
 }

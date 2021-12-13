@@ -19,6 +19,7 @@ void get_images(t_game *game)
 	game->sprite.wall.img = mlx_xpm_file_to_image(game->mlx, "./sprites/wall.xpm", &(game->sprite.wall.width), &(game->sprite.wall.height));
 	game->sprite.item.img = mlx_xpm_file_to_image(game->mlx, "./sprites/item.xpm", &(game->sprite.item.width), &(game->sprite.item.height));
 	game->sprite.exit.img = mlx_xpm_file_to_image(game->mlx, "./sprites/exit.xpm", &(game->sprite.exit.width), &(game->sprite.exit.height));
+	game->sprite.exit2.img = mlx_xpm_file_to_image(game->mlx, "./sprites/exit2.xpm", &(game->sprite.exit2.width), &(game->sprite.exit2.height));
 }
 
 int	load_game(t_game *game)
@@ -37,7 +38,12 @@ int	load_game(t_game *game)
 			if (game->tile_map[i][j].type == EMPTY)
 				mlx_put_image_to_window(game->mlx, game->win, game->sprite.tile.img, j * IMG_SIZE, i * IMG_SIZE);
 			if (game->tile_map[i][j].type == EXIT)
-				mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit.img, j * IMG_SIZE, i * IMG_SIZE);
+			{
+				if (game->verify.collectable == game->verify.item)
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit2.img, j * IMG_SIZE, i * IMG_SIZE);
+				else
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit.img, j * IMG_SIZE, i * IMG_SIZE);
+			}
 			if (game->tile_map[i][j].type == PLAYER)
 			{
 				mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);

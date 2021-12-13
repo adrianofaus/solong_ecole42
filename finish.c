@@ -15,7 +15,7 @@
 void	free_null(void *ptr)
 {
 	free(ptr);
-	ptr = NULL; //Verificar se eu posso usar a mesma função do GNL
+	ptr = NULL;
 }
 
 void	free_all(t_game *game)
@@ -38,4 +38,5 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->sprite.wall.img);
 	mlx_destroy_image(game->mlx, game->sprite.item.img);
 	mlx_destroy_image(game->mlx, game->sprite.exit.img);
+	mlx_destroy_image(game->mlx, game->sprite.exit2.img);
 }
