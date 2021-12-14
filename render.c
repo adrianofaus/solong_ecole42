@@ -15,6 +15,9 @@
 void get_images(t_game *game)
 {
 	game->sprite.down1.img = mlx_xpm_file_to_image(game->mlx, "./sprites/down1.xpm", &(game->sprite.down1.width), &(game->sprite.down1.height));
+	game->sprite.left1.img = mlx_xpm_file_to_image(game->mlx, "./sprites/left1.xpm", &(game->sprite.left1.width), &(game->sprite.left1.height));
+	game->sprite.right1.img = mlx_xpm_file_to_image(game->mlx, "./sprites/right1.xpm", &(game->sprite.right1.width), &(game->sprite.right1.height));
+	game->sprite.up1.img = mlx_xpm_file_to_image(game->mlx, "./sprites/up1.xpm", &(game->sprite.up1.width), &(game->sprite.up1.height));
 	game->sprite.tile.img = mlx_xpm_file_to_image(game->mlx, "./sprites/tile.xpm", &(game->sprite.tile.width), &(game->sprite.tile.height));
 	game->sprite.wall.img = mlx_xpm_file_to_image(game->mlx, "./sprites/wall.xpm", &(game->sprite.wall.width), &(game->sprite.wall.height));
 	game->sprite.item.img = mlx_xpm_file_to_image(game->mlx, "./sprites/item.xpm", &(game->sprite.item.width), &(game->sprite.item.height));

@@ -12,70 +12,122 @@
 
 #include "so_long.h"
 
-int	move_to(int keycode, t_game *game)
+void	move_to_up(t_game *game)
 {
 	t_vector	temp;
 
+	if (game->sprite.down1.t_up == ITEM)
+		game->verify.item++;
+	if (game->sprite.down1.t_up != WALL && game->sprite.down1.t_up != EXIT)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y - 1][temp.x].type = PLAYER;
+	}
+	else if (game->sprite.down1.t_up == EXIT && game->verify.collectable == game->verify.item)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y - 1][temp.x].type = EXIT;
+		game->run = 0;
+	}
+}
+
+void	move_to_down(t_game *game)
+{
+	t_vector	temp;
+
+	if (game->sprite.down1.t_down == ITEM)
+		game->verify.item++;
+	if (game->sprite.down1.t_down != WALL && game->sprite.down1.t_down != EXIT)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y + 1][temp.x].type = PLAYER;
+	}
+	else if (game->sprite.down1.t_down == EXIT && game->verify.collectable == game->verify.item)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y + 1][temp.x].type = EXIT;
+		game->run = 0;
+	}
+}
+
+void	move_to_right(t_game *game)
+{
+	t_vector	temp;
+
+	if (game->sprite.down1.t_right == ITEM)
+		game->verify.item++;
+	if (game->sprite.down1.t_right != WALL && game->sprite.down1.t_right != EXIT)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y][temp.x + 1].type = PLAYER;
+	}
+	else if (game->sprite.down1.t_right == EXIT && game->verify.collectable == game->verify.item)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y][temp.x + 1].type = EXIT;
+		game->run = 0;
+	}
+}
+
+void	move_to_left(t_game *game)
+{
+	t_vector	temp;
+
+	if (game->sprite.down1.t_left == ITEM)
+		game->verify.item++;
+	if (game->sprite.down1.t_left != WALL && game->sprite.down1.t_left != EXIT)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y][temp.x - 1].type = PLAYER;
+	}
+	else if (game->sprite.down1.t_left == EXIT && game->verify.collectable == game->verify.item)
+	{
+		temp = game->sprite.down1.current;
+		game->tile_map[temp.y][temp.x].type = EMPTY;
+		game->tile_map[temp.y][temp.x - 1].type = EXIT;
+		game->run = 0;
+	}
+}
+
+int	input(int key, t_game *game)
+{
+	printf("%d\n", key);
 	printf("collectable %d\nitems %d\nt_up %c\nt_down %c\nt_right %c\nt_left %c\n----------\n", game->verify.collectable, game->verify.item,game->sprite.down1.t_up, game->sprite.down1.t_down, game->sprite.down1.t_right, game->sprite.down1.t_left);
-	if (keycode == 119)
+	if (game->run)
 	{
-		if (game->sprite.down1.t_up == ITEM)
-			game->verify.item++;
-		if (game->sprite.down1.t_up != WALL && game->sprite.down1.t_up != EXIT)
+		if (key == 119)
 		{
-			temp = game->sprite.down1.current;
-			game->tile_map[temp.y][temp.x].type = EMPTY;
-			game->tile_map[temp.y - 1][temp.x].type = PLAYER;
+			if (game->sprite.down1.t_up == ITEM)
+				game->verify.item++;
+			move_to_up(game);
+		}
+		if (key == 115)
+		{
+			if (game->sprite.down1.t_down == ITEM)
+				game->verify.item++;
+			move_to_down(game);
+		}
+		if (key == 100)
+		{
+			if (game->sprite.down1.t_right == ITEM)
+				game->verify.item++;
+			move_to_right(game);
+		}
+		if (key == 97)
+		{
+			if(game->sprite.down1.t_left == ITEM)
+				game->verify.item++;
+			move_to_left(game);
 		}
 	}
-	if (keycode == 115)
-	{
-		if (game->sprite.down1.t_down == ITEM)
-			game->verify.item++;
-		if (game->sprite.down1.t_down != WALL && game->sprite.down1.t_down != EXIT)
-		{
-			temp = game->sprite.down1.current;
-			game->tile_map[temp.y][temp.x].type = EMPTY;
-			game->tile_map[temp.y + 1][temp.x].type = PLAYER;
-		}
-	}
-	if (keycode == 100)
-	{
-		if (game->sprite.down1.t_right == ITEM)
-			game->verify.item++;
-		if (game->sprite.down1.t_right != WALL && game->sprite.down1.t_right != EXIT)
-		{
-			temp = game->sprite.down1.current;
-			game->tile_map[temp.y][temp.x].type = EMPTY;
-			game->tile_map[temp.y][temp.x + 1].type = PLAYER;
-		}
-	}
-	if (keycode == 97)
-	{
-		if(game->sprite.down1.t_left == ITEM)
-			game->verify.item++;
-		if (game->sprite.down1.t_left != WALL && game->sprite.down1.t_left != EXIT)
-		{
-			temp = game->sprite.down1.current;
-			game->tile_map[temp.y][temp.x].type = EMPTY;
-			game->tile_map[temp.y][temp.x - 1].type = PLAYER;
-		}
-		else if (game->sprite.down1.t_left == EXIT && game->verify.collectable == game->verify.item)
-		{
-			temp = game->sprite.down1.current;
-			game->tile_map[temp.y][temp.x].type = EMPTY;
-			game->tile_map[temp.y][temp.x - 1].type = PLAYER;
-		}
-	}
-	if (keycode == 65307)
-	{
-		free_images(game);
-		free_all(game);
-		mlx_destroy_window(game->mlx, game->win);
-		mlx_loop_end(game->mlx);
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);		
-		exit(0);
-	}
+	if (key == 65307)
+		end_game(game);
 	return(0);
 }

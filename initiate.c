@@ -12,33 +12,6 @@
 
 #include "so_long.h"
 
-// void	axis_init(char *map, t_game *game)
-// {
-// 	int		bytes_read;
-// 	char	buffer[1001];
-// 	char	*check;
-// 	int		fd;
-
-// 	fd = open(map, O_RDONLY);
-// 	ft_bzero(buffer, 1001);
-// 	bytes_read = read(fd, buffer, 1000);
-// 	while (bytes_read > 0)
-// 	{
-// 		check = ft_strchr(buffer, '\n');
-// 		if (check && !game->y_axis)
-// 			game->x_axis += (check - buffer);
-// 		else if (!check && !game->y_axis)
-// 			game->x_axis += 1000;
-// 		while (check)
-// 		{
-// 			game->y_axis++;
-// 			check = ft_strchr(&buffer[1 + check - buffer], '\n');
-// 		}
-// 		bytes_read = read(fd, buffer, 1000);
-// 	}
-// 	close(fd);
-// }
-
 void	axis_init(char	*map, t_game *game)
 {
 	char	c;
@@ -74,7 +47,8 @@ int	game_init(char *map, t_game *game)
 	int			is_valid;
 
 	game->x_axis = 0;
-	game->y_axis = 0;	
+	game->y_axis = 0;
+	game->run = 1;
 	axis_init(map, game);
 	if ((game->x_axis < 3 || game->y_axis < 3) && game->x_axis * game->y_axis < 15)
 		return (error("Map must have all items"));

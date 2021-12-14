@@ -111,6 +111,7 @@ typedef struct s_game
 	int			x_axis;
 	int			y_axis;
 	int			items;
+	int			run;
 	t_tile		**tile_map;
 	t_validate	verify;
 }	t_game;
@@ -119,7 +120,7 @@ typedef struct s_game
 
 int		validate_file(int argc, char **file);
 int		game_init(char *map, t_game *game);
-int		move_to(int keycode, t_game *game);
+int		input(int keycode, t_game *game);
 int		load_game(t_game *game);
 int		map_gen(char *map, t_game *game);
 char	validate_tile(char *tile, t_game *game);
@@ -128,5 +129,6 @@ void	free_all(t_game *game);
 void	print_map(t_game *game);
 void	free_images(t_game *game);
 void	get_images(t_game *game);
+void	end_game(t_game *game);
 
 #endif
