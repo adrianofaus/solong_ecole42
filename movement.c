@@ -6,13 +6,13 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/04 11:20:39 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:36:20 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	move_to_up(t_game *game)
+void	move_up(t_game *game)
 {
 	t_vector	temp;
 
@@ -33,7 +33,7 @@ void	move_to_up(t_game *game)
 	}
 }
 
-void	move_to_down(t_game *game)
+void	move_down(t_game *game)
 {
 	t_vector	temp;
 
@@ -54,7 +54,7 @@ void	move_to_down(t_game *game)
 	}
 }
 
-void	move_to_right(t_game *game)
+void	move_right(t_game *game)
 {
 	t_vector	temp;
 
@@ -75,7 +75,7 @@ void	move_to_right(t_game *game)
 	}
 }
 
-void	move_to_left(t_game *game)
+void	move_left(t_game *game)
 {
 	t_vector	temp;
 
@@ -104,27 +104,23 @@ int	input(int key, t_game *game)
 	{
 		if (key == 119)
 		{
-			if (game->sprite.down1.t_up == ITEM)
-				game->verify.item++;
-			move_to_up(game);
+			game->lastkey = 'W';
+			move_up(game);
 		}
 		if (key == 115)
 		{
-			if (game->sprite.down1.t_down == ITEM)
-				game->verify.item++;
-			move_to_down(game);
+			game->lastkey = 'S';
+			move_down(game);
 		}
 		if (key == 100)
 		{
-			if (game->sprite.down1.t_right == ITEM)
-				game->verify.item++;
-			move_to_right(game);
+			game->lastkey = 'D';
+			move_right(game);
 		}
 		if (key == 97)
 		{
-			if(game->sprite.down1.t_left == ITEM)
-				game->verify.item++;
-			move_to_left(game);
+			game->lastkey = 'A';
+			move_left(game);
 		}
 	}
 	if (key == 65307)

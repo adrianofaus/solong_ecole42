@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/04 11:19:52 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/14 16:07:46 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,14 @@ int	load_game(t_game *game)
 			}
 			if (game->tile_map[i][j].type == PLAYER)
 			{
-				mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);
+				if (!game->lastkey || game->lastkey == 'S')
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);
+				if (game->lastkey == 'W')
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.up1.img, j * IMG_SIZE, i * IMG_SIZE);
+				if (game->lastkey == 'D')
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.right1.img, j * IMG_SIZE, i * IMG_SIZE);
+				if (game->lastkey == 'A')
+					mlx_put_image_to_window(game->mlx, game->win, game->sprite.left1.img, j * IMG_SIZE, i * IMG_SIZE);
 				game->sprite.down1.current.x = j;
 				game->sprite.down1.current.y = i;
 				game->sprite.down1.t_down = game->tile_map[i + 1][j].type;

@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/04 13:21:09 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:26:00 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
-	int			lastkey;
+	char		lastkey;
 	t_sprite	sprite;
 	int			x_axis;
 	int			y_axis;
@@ -129,6 +129,6 @@ void	free_all(t_game *game);
 void	print_map(t_game *game);
 void	free_images(t_game *game);
 void	get_images(t_game *game);
-void	end_game(t_game *game);
+int		end_game(t_game *game);
 
 #endif

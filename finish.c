@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:45:39 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/04 13:17:07 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:33:04 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->sprite.exit2.img);
 }
 
-void	end_game(t_game *game)
+int	end_game(t_game *game)
 {
-		free_images(game);
-		free_all(game);
-		mlx_destroy_window(game->mlx, game->win);
-		mlx_loop_end(game->mlx);
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);		
-		exit(0);
+	free_images(game);
+	free_all(game);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_loop_end(game->mlx);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);		
+	exit(0);
+	return (0);
 }

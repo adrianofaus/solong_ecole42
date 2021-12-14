@@ -4,7 +4,7 @@ MLXPATH := ./libraries/mlx_linux
 FTPATH := ./libraries/libft
 LIBRARIES := -lft -lmlx -lX11 -lm -lz -lXext
 CC ?= clang
-SRCS := so_long.c dimensions.c generate.c initiate.c validate.c error.c print.c finish.c render.c movement.c
+SRCS := so_long.c generate.c initiate.c validate.c error.c finish.c render.c movement.c
 CFLAGS ?= -Wall -Werror -Wextra -g3
 LEAKS := valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 MYMAIN ?=
