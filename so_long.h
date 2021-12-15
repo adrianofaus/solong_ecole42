@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/14 18:26:00 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:42:09 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	char		lastkey;
+	int			moves;
 	t_sprite	sprite;
 	int			x_axis;
 	int			y_axis;
