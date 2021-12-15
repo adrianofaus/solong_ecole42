@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:48:22 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 17:36:36 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:43:18 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	game_init(char *map, t_game *game)
 {
 	int			is_valid;
 
+	game->frame = 0;
 	game->x_axis = 0;
 	game->y_axis = 0;
 	game->run = 1;

@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 20:03:00 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:50:09 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,11 @@ void	load_player(t_game *game, int i, int j)
 	if (game->lastkey == 97)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.left1.img,
 			j * IMG_SIZE, i * IMG_SIZE);
-	game->sprite.down1.current.x = j;
-	game->sprite.down1.current.y = i;
-	game->sprite.down1.t_down = game->tile_map[i + 1][j].type;
-	game->sprite.down1.t_up = game->tile_map[i - 1][j].type;
-	game->sprite.down1.t_right = game->tile_map[i][j + 1].type;
-	game->sprite.down1.t_left = game->tile_map[i][j - 1].type;
+	if (!game->count_moves)
+	{
+		game->sprite.down1.current.x = j;
+		game->sprite.down1.current.y = i;
+	}
 }
 
 void	put_tile(t_game *game, int i, int j)
@@ -78,6 +77,11 @@ void	put_tile(t_game *game, int i, int j)
 	if (game->tile_map[i][j].type == ITEM)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.item.img,
 			j * IMG_SIZE, i * IMG_SIZE);
+	if (game->frame)
+	{
+		get_moves(game);
+		game->frame = 0;
+	}
 }
 
 int	load_game(t_game *game)

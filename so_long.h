@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 17:41:12 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:43:31 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ typedef struct s_game
 	int			x_axis;
 	int			y_axis;
 	int			run;
+	int			frame;
 	t_tile		**tile_map;
 	t_validate	verify;
 }	t_game;
@@ -121,5 +122,6 @@ void	free_images(t_game *game);
 void	get_images(t_game *game);
 int		end_game(t_game *game);
 void	free_null(void *ptr);
+void	get_moves(t_game *game);
 
 #endif
