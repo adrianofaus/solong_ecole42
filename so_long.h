@@ -13,6 +13,12 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <mlx.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <time.h>
+# include <unistd.h>
+# include "../libft/libft.h"
 # define PATH_DOWN "./sprites/down1.xpm"
 # define PATH_LEFT "./sprites/left1.xpm"
 # define PATH_RIGHT "./sprites/right1.xpm"
@@ -23,17 +29,7 @@
 # define PATH_EXT "./sprites/exit.xpm"
 # define PATH_EXT2 "./sprites/exit2.xpm"
 
-#include <mlx.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <time.h>
-#include <unistd.h>
-#include "../libft/libft.h"
-
-/* SPRITE SIZE */
-#define IMG_SIZE 32
-
-/* TILES */
+# define IMG_SIZE 32
 
 typedef enum e_tiletype
 {
@@ -46,20 +42,18 @@ typedef enum e_tiletype
 	FOLLOWER = 'F'
 }	t_tiletype;
 
-/* STRUCTURES */
-
 typedef struct s_vector
 {
 	int	x;
 	int	y;
 }		t_vector;
 
-typedef	struct s_tile
+typedef struct s_tile
 {
-	char type;
+	char	type;
 }	t_tile;
 
-typedef	struct s_image
+typedef struct s_image
 {
 	void	*img;
 	int		width;
@@ -100,8 +94,8 @@ typedef struct s_validator
 	int	py;
 	int	exit;
 	int	collectable;
-	int item;
-	int player;
+	int	item;
+	int	player;
 }	t_validate;
 
 typedef struct s_game
@@ -119,8 +113,6 @@ typedef struct s_game
 	t_validate	verify;
 }	t_game;
 
-/* FUNCTIONS */
-
 int		validate_file(int argc, char **file);
 int		game_init(char *map, t_game *game);
 int		input(int keycode, t_game *game);
@@ -129,7 +121,6 @@ int		map_gen(char *map, t_game *game);
 char	validate_tile(char *tile, t_game *game);
 int		error(char	*msg);
 void	free_all(t_game *game);
-void	print_map(t_game *game);
 void	free_images(t_game *game);
 void	get_images(t_game *game);
 int		end_game(t_game *game);
