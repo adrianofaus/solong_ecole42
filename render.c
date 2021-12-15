@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 23:50:09 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:15:05 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	get_images(t_game *game)
 			&(game->sprite.ext.width), &(game->sprite.ext.height));
 	game->sprite.ext2.img = mlx_xpm_file_to_image(game->mlx, PATH_EXT2,
 			&(game->sprite.ext2.width), &(game->sprite.ext2.height));
+	game->sprite.enemy.img = mlx_xpm_file_to_image(game->mlx, PATH_ENEMY,
+			&(game->sprite.enemy.width), &(game->sprite.enemy.height));
 }
 
 void	load_player(t_game *game, int i, int j)
@@ -76,6 +78,9 @@ void	put_tile(t_game *game, int i, int j)
 		load_player(game, i, j);
 	if (game->tile_map[i][j].type == ITEM)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.item.img,
+			j * IMG_SIZE, i * IMG_SIZE);
+	if (game->tile_map[i][j].type == ENEMY)
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.enemy.img,
 			j * IMG_SIZE, i * IMG_SIZE);
 	if (game->frame)
 	{

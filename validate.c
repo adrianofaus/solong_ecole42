@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 11:28:32 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/04 12:12:10 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:13:11 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	is_border(t_game *game)
 
 char	validate_tile(char *tile, t_game *game)
 {	
-	if (!ft_strchr("01CEP\n", *tile))
+	if (!ft_strchr("01CEPA\n", *tile))
 		return (error("Invalid char was found, please check the map"));
 	if (is_border(game) && *tile != '1' && *tile != '\n')
 		return (error("It must have walls around the map"));

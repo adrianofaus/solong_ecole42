@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 23:43:31 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:11:28 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define PATH_ITEM "./sprites/item.xpm"
 # define PATH_EXT "./sprites/exit.xpm"
 # define PATH_EXT2 "./sprites/exit2.xpm"
+# define PATH_ENEMY "./sprites/enemy.xpm"
 
 # define IMG_SIZE 32
 
@@ -82,6 +83,7 @@ typedef struct s_sprite
 	t_image		ext;
 	t_image		ext2;
 	t_image		item;
+	t_image		enemy;
 	t_image		collectable;
 }			t_sprite;
 
