@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:48:22 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 01:44:32 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:59:13 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	validator_init(t_game *game)
 	game->verify.exit = 0;
 	game->verify.collectable = 0;
 	game->verify.player = 0;
-	game->verify.item = 0;
 }
 
 int	game_init(char *map, t_game *game)

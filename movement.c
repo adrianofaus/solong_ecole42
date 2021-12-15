@@ -19,14 +19,14 @@ int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 	if (dir != WALL && dir != EXIT)
 	{
 		if (dir == ITEM)
-			game->verify.item++;
+			game->verify.collectable--;
 		temp = game->sprite.down1.current;
 		game->tile_map[temp.y][temp.x].type = EMPTY;
 		game->tile_map[temp.y + sum_y][temp.x + sum_x].type = PLAYER;
 		printf("Moves: %d\n", ++game->moves);
 		return (1);
 	}
-	else if (dir == EXIT && game->verify.collectable >= game->verify.item)
+	else if (dir == EXIT && !game->verify.collectable)
 	{
 		temp = game->sprite.down1.current;
 		game->tile_map[temp.y][temp.x].type = EMPTY;

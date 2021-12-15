@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 01:36:32 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:58:14 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <time.h>
 # include <unistd.h>
 # include "../libft/libft.h"
 # define PATH_DOWN "./sprites/down1.xpm"
@@ -84,8 +83,6 @@ typedef struct s_sprite
 	t_image		ext2;
 	t_image		item;
 	t_image		collectable;
-	t_vector	player_bf;
-	t_vector	player_af;
 }			t_sprite;
 
 typedef struct s_validator
@@ -94,7 +91,6 @@ typedef struct s_validator
 	int	py;
 	int	exit;
 	int	collectable;
-	int	item;
 	int	player;
 }	t_validate;
 
@@ -107,7 +103,6 @@ typedef struct s_game
 	t_sprite	sprite;
 	int			x_axis;
 	int			y_axis;
-	int			items;
 	int			run;
 	t_tile		**tile_map;
 	t_validate	verify;

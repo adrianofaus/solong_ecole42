@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		game.mlx = mlx_init();
 		game.win = mlx_new_window(game.mlx, IMG_SIZE * game.x_axis,
 				IMG_SIZE * game.y_axis, "so_long");
-		mlx_hook(game.win, 3, 1L << 1, input, &game);
+		mlx_hook(game.win, 2, 1L << 0, input, &game);
 		mlx_hook(game.win, 17, 0, &end_game, &game);
 		get_images(&game);
 		mlx_loop_hook(game.mlx, load_game, &game);
