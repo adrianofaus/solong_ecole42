@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/14 16:07:46 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 01:42:20 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ void get_images(t_game *game)
 	game->sprite.item.img = mlx_xpm_file_to_image(game->mlx, "./sprites/item.xpm", &(game->sprite.item.width), &(game->sprite.item.height));
 	game->sprite.exit.img = mlx_xpm_file_to_image(game->mlx, "./sprites/exit.xpm", &(game->sprite.exit.width), &(game->sprite.exit.height));
 	game->sprite.exit2.img = mlx_xpm_file_to_image(game->mlx, "./sprites/exit2.xpm", &(game->sprite.exit2.width), &(game->sprite.exit2.height));
+}
+
+void	load_player(t_game *game, int i, int j)
+{
+	if (!game->lastkey || game->lastkey == 'S')
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);
+	if (game->lastkey == 'W')
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.up1.img, j * IMG_SIZE, i * IMG_SIZE);
+	if (game->lastkey == 'D')
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.right1.img, j * IMG_SIZE, i * IMG_SIZE);
+	if (game->lastkey == 'A')
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.left1.img, j * IMG_SIZE, i * IMG_SIZE);
+	game->sprite.down1.current.x = j;
+	game->sprite.down1.current.y = i;
+	game->sprite.down1.t_down = game->tile_map[i + 1][j].type;
+	game->sprite.down1.t_up = game->tile_map[i - 1][j].type;
+	game->sprite.down1.t_right = game->tile_map[i][j + 1].type;
+	game->sprite.down1.t_left = game->tile_map[i][j - 1].type;	
 }
 
 int	load_game(t_game *game)
@@ -48,22 +66,7 @@ int	load_game(t_game *game)
 					mlx_put_image_to_window(game->mlx, game->win, game->sprite.exit.img, j * IMG_SIZE, i * IMG_SIZE);
 			}
 			if (game->tile_map[i][j].type == PLAYER)
-			{
-				if (!game->lastkey || game->lastkey == 'S')
-					mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);
-				if (game->lastkey == 'W')
-					mlx_put_image_to_window(game->mlx, game->win, game->sprite.up1.img, j * IMG_SIZE, i * IMG_SIZE);
-				if (game->lastkey == 'D')
-					mlx_put_image_to_window(game->mlx, game->win, game->sprite.right1.img, j * IMG_SIZE, i * IMG_SIZE);
-				if (game->lastkey == 'A')
-					mlx_put_image_to_window(game->mlx, game->win, game->sprite.left1.img, j * IMG_SIZE, i * IMG_SIZE);
-				game->sprite.down1.current.x = j;
-				game->sprite.down1.current.y = i;
-				game->sprite.down1.t_down = game->tile_map[i + 1][j].type;
-				game->sprite.down1.t_up = game->tile_map[i - 1][j].type;
-				game->sprite.down1.t_right = game->tile_map[i][j + 1].type;
-				game->sprite.down1.t_left = game->tile_map[i][j - 1].type;
-			}
+				load_player(game, i, j);
 			if (game->tile_map[i][j].type == ITEM)
 				mlx_put_image_to_window(game->mlx, game->win, game->sprite.item.img, j * IMG_SIZE, i * IMG_SIZE);				
 			j++;

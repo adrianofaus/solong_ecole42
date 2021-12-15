@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:48:22 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/14 18:42:15 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 01:44:32 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	game_init(char *map, t_game *game)
 		return (is_valid);
 	if ((game->x_axis < 3 || game->y_axis < 3) && game->x_axis * game->y_axis < 15)
 		return (error("Map must have all items"));
-	printf(">: x_axis %d\n", game->x_axis);
-	printf(">: y_axis %d\n", game->y_axis);
 	validator_init(game);
 	is_valid = map_gen(map, game);
 	return (is_valid);

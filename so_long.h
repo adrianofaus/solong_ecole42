@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/14 18:42:09 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 01:36:32 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,9 @@ typedef struct s_player
 typedef struct s_sprite
 {
 	t_player	down1;
-	t_image		down2;
-	t_image		down3;
 	t_image		up1;
-	t_image		up2;
-	t_image		up3;
 	t_image		left1;
-	t_image		left2;
-	t_image		left3;
 	t_image		right1;
-	t_image		right2;
-	t_image		right3;
 	t_image		wall;
 	t_image		tile;
 	t_image		exit;
