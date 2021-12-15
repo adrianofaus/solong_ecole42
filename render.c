@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 16:58:49 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:03:00 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	put_tile(t_game *game, int i, int j)
 			j * IMG_SIZE, i * IMG_SIZE);
 	if (game->tile_map[i][j].type == EXIT)
 	{
-		if (!game->verify.collectable)
+		if (game->verify.collectable <= 0)
 			mlx_put_image_to_window(game->mlx, game->win, game->sprite.ext2.img,
 				j * IMG_SIZE, i * IMG_SIZE);
 		else
@@ -92,6 +92,7 @@ int	load_game(t_game *game)
 		while (j < game->x_axis)
 		{
 			put_tile(game, i, j);
+			mlx_string_put(game->mlx, game->win, 5, 15, 0x000000, game->moves);
 			j++;
 		}
 		i++;

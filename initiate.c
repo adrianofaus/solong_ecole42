@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:48:22 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 16:59:13 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 17:36:36 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	game_init(char *map, t_game *game)
 	game->run = 1;
 	game->lastkey = 0;
 	is_valid = 0;
-	game->moves = 0;
+	game->count_moves = 0;
+	game->moves = "0";
 	if (!axis_init(map, game))
 		return (is_valid);
 	if ((game->x_axis < 3 || game->y_axis < 3)

@@ -6,11 +6,19 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 01:34:02 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:22:41 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	get_moves(t_game *game)
+{
+	if (game->count_moves)
+		free_null(game->moves);
+	++game->count_moves;
+	game->moves = ft_itoa(game->count_moves);
+}
 
 int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 {
@@ -23,16 +31,29 @@ int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 		temp = game->sprite.down1.current;
 		game->tile_map[temp.y][temp.x].type = EMPTY;
 		game->tile_map[temp.y + sum_y][temp.x + sum_x].type = PLAYER;
-		printf("Moves: %d\n", ++game->moves);
+		get_moves(game);
+		int i = 0;
+		int j = 0;
+		while(game->tile_map[i])
+		{	
+			j = 0;
+			while (game->tile_map[i][j].type)
+			{
+				printf("%c", game->tile_map[i][j].type);
+				j++;
+			}
+			printf("\n");
+			i++;
+		}
+		printf("\n");
 		return (1);
 	}
-	else if (dir == EXIT && !game->verify.collectable)
+	else if (dir == EXIT && game->verify.collectable <= 0)
 	{
 		temp = game->sprite.down1.current;
 		game->tile_map[temp.y][temp.x].type = EMPTY;
 		game->tile_map[temp.y + sum_y][temp.x + sum_x].type = EXIT;
 		game->run = 0;
-		printf("Moves: %d\n", ++game->moves);
 		return (1);
 	}
 	return (0);
