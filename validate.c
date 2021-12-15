@@ -25,14 +25,14 @@ int	validate_file(int argc, char **file)
 
 int	is_border(t_game *game)
 {
-	if (game->verify.py == 0 || game->verify.py == (game->y_axis - 1) || game->verify.px == 0 || game->verify.px == (game->x_axis - 1))
+	if (game->verify.py == 0 || game->verify.py == (game->y_axis - 1)
+		|| game->verify.px == 0 || game->verify.px == (game->x_axis - 1))
 		return (1);
 	return (0);
 }
 
 char	validate_tile(char *tile, t_game *game)
 {	
-	printf("%c", *tile);
 	if (!ft_strchr("01CEP\n", *tile))
 		return (error("Invalid char was found, please check the map"));
 	if (is_border(game) && *tile != '1' && *tile != '\n')
@@ -47,8 +47,8 @@ char	validate_tile(char *tile, t_game *game)
 	}
 	if (*tile == 'E')
 		game->verify.exit++;
-	if (game->verify.px == game->x_axis || (*tile == '\n' && (game->verify.px < game->x_axis)))
+	if (game->verify.px == game->x_axis
+		|| (*tile == '\n' && (game->verify.px < game->x_axis)))
 		return (error("Map must be rectangular"));
 	return (*tile);
 }
-

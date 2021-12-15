@@ -44,31 +44,30 @@ t_tile	*get_tiles(int fd, t_game *game)
 int	map_gen(char *map, t_game *game)
 {
 	int		fd;
-	int		i;
-	
+	// int		i;
+
 	game->tile_map = malloc(sizeof(t_tile *) * (game->y_axis + 1));
 	fd = open(map, O_RDONLY);
 	if (!game->tile_map || !fd)
 		return (0);
-	i = 0;
-	game->verify.py = 0;
-	while (i < game->y_axis)
+	// i = 0;
+	// game->verify.py = 0;
+	while (game->verify.py < game->y_axis)
 	{
-		game->tile_map[i] = get_tiles(fd, game);
-		printf("\n");
-		if (!game->tile_map[i])
+		game->tile_map[game->verify.py] = get_tiles(fd, game);
+		if (!game->tile_map[game->verify.py])
 		{	
 			free_all(game);
 			return (0);
 		}
 		game->verify.py++;
-		i++;
+		// i++;
 	}
-	game->tile_map[i] = NULL;
+	game->tile_map[game->verify.py] = NULL;
 	if (!game->verify.collectable || !game->verify.exit || !game->verify.player)
 	{
 		free_all(game);
- 		return (error("It must have all the necessary items"));
+		return (error("It must have all the necessary items"));
 	}
 	close(fd);
 	return (1);

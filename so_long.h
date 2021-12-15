@@ -13,6 +13,16 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# define PATH_DOWN "./sprites/down1.xpm"
+# define PATH_LEFT "./sprites/left1.xpm"
+# define PATH_RIGHT "./sprites/right1.xpm"
+# define PATH_UP "./sprites/up1.xpm"
+# define PATH_TILE "./sprites/tile.xpm"
+# define PATH_WALL "./sprites/wall.xpm"
+# define PATH_ITEM "./sprites/item.xpm"
+# define PATH_EXT "./sprites/exit.xpm"
+# define PATH_EXT2 "./sprites/exit2.xpm"
+
 #include <mlx.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -76,8 +86,8 @@ typedef struct s_sprite
 	t_image		right1;
 	t_image		wall;
 	t_image		tile;
-	t_image		exit;
-	t_image		exit2;
+	t_image		ext;
+	t_image		ext2;
 	t_image		item;
 	t_image		collectable;
 	t_vector	player_bf;

@@ -15,6 +15,7 @@
 int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 {
 	t_vector	temp;
+
 	if (dir != WALL && dir != EXIT)
 	{
 		if (dir == ITEM)
@@ -22,6 +23,7 @@ int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 		temp = game->sprite.down1.current;
 		game->tile_map[temp.y][temp.x].type = EMPTY;
 		game->tile_map[temp.y + sum_y][temp.x + sum_x].type = PLAYER;
+		printf("Moves: %d\n", ++game->moves);
 		return (1);
 	}
 	else if (dir == EXIT && game->verify.collectable == game->verify.item)
@@ -30,6 +32,7 @@ int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 		game->tile_map[temp.y][temp.x].type = EMPTY;
 		game->tile_map[temp.y + sum_y][temp.x + sum_x].type = EXIT;
 		game->run = 0;
+		printf("Moves: %d\n", ++game->moves);
 		return (1);
 	}
 	return (0);
@@ -37,34 +40,19 @@ int	move_to(t_game *game, char dir, int sum_y, int sum_x)
 
 int	input(int key, t_game *game)
 {
+	game->lastkey = key;
 	if (game->run)
 	{
 		if (key == 119)
-		{
-			game->lastkey = 'W';
-			if (move_to(game, game->sprite.down1.t_up, -1, 0))
-				printf("Moves: %d\n", ++game->moves);
-		}
-		if (key == 115)
-		{
-			game->lastkey = 'S';
-			if (move_to(game, game->sprite.down1.t_down, 1, 0))
-				printf("Moves: %d\n", ++game->moves);
-		}
-		if (key == 100)
-		{
-			game->lastkey = 'D';
-			if (move_to(game, game->sprite.down1.t_right, 0, 1))
-				printf("Moves: %d\n", ++game->moves);
-		}
-		if (key == 97)
-		{
-			game->lastkey = 'A';
-			if (move_to(game, game->sprite.down1.t_left, 0, -1))
-				printf("Moves: %d\n", ++game->moves);
-		}
+			move_to(game, game->sprite.down1.t_up, -1, 0);
+		else if (key == 115)
+			move_to(game, game->sprite.down1.t_down, 1, 0);
+		else if (key == 100)
+			move_to(game, game->sprite.down1.t_right, 0, 1);
+		else if (key == 97)
+			move_to(game, game->sprite.down1.t_left, 0, -1);
 	}
 	if (key == 65307)
 		end_game(game);
-	return(0);
+	return (0);
 }
