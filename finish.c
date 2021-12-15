@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:45:39 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 19:09:59 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:36:51 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	end_game(t_game *game)
 	mlx_loop_end(game->mlx);
 	mlx_destroy_display(game->mlx);
 	free_null(game->mlx);
-	free_null(game->moves);
+	if (game->count_moves)
+		free_null(game->moves);
 	exit(0);
 	return (0);
 }
