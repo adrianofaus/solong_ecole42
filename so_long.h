@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 00:42:10 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 03:09:07 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "./libraries/libft/libft.h"
 # define PATH_DOWN "./sprites/down1.xpm"
 # define PATH_LEFT "./sprites/left1.xpm"
 # define PATH_RIGHT "./sprites/right1.xpm"
