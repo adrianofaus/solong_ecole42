@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 21:08:30 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 23:24:20 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,23 @@ int	move_to(t_game *game, int y_offset, int x_offset)
 
 int	input(int key, t_game *game)
 {
-	int	y_offset;
-	int	x_offset;
-
-	y_offset = 0;
-	x_offset = 0;
 	if (key == 65307)
 		end_game(game);
 	if (game->run)
 	{
 		if (key == 119)
-			y_offset = -1;
-		else if (key == 115)
-			y_offset = 1;
-		else if (key == 100)
-			x_offset = 1;
-		else if (key == 97)
-			x_offset = -1;
-	}
-	if (game->run)
-	{
+			if (move_to(game, -1, 0))
+				get_moves(game);
+		if (key == 115)
+			if (move_to(game, 1, 0))
+				get_moves(game);
+		if (key == 100)
+			if (move_to(game, 0, 1))
+				get_moves(game);
+		if (key == 97)
+			if (move_to(game, 0, -1))
+				get_moves(game);
 		game->lastkey = key;
-		if (move_to(game, y_offset, x_offset))
-			get_moves(game);
 	}
 	return (0);
 }
