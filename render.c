@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 01:30:43 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:48:57 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,39 @@ void	get_images(t_game *game)
 
 void	load_player(t_game *game, int i, int j)
 {
-	if (!game->sprite.down1.health)
+	if (game->sprite.down1.health)
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.dead.img,
-			j * IMG_SIZE, i * IMG_SIZE);
+		if (!game->lastkey || game->lastkey == 115)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->sprite.down1.img, j * IMG_SIZE, i * IMG_SIZE);
+		if (game->lastkey == 119)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->sprite.up1.img, j * IMG_SIZE, i * IMG_SIZE);
+		if (game->lastkey == 100)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->sprite.right1.img, j * IMG_SIZE, i * IMG_SIZE);
+		if (game->lastkey == 97)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->sprite.left1.img, j * IMG_SIZE, i * IMG_SIZE);
 	}
-	if (!game->lastkey || game->lastkey == 115)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img,
-			j * IMG_SIZE, i * IMG_SIZE);
-	if (game->lastkey == 119)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.up1.img,
-			j * IMG_SIZE, i * IMG_SIZE);
-	if (game->lastkey == 100)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.right1.img,
-			j * IMG_SIZE, i * IMG_SIZE);
-	if (game->lastkey == 97)
-		mlx_put_image_to_window(game->mlx, game->win, game->sprite.left1.img,
-			j * IMG_SIZE, i * IMG_SIZE);
+	else
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->sprite.dead.img, j * IMG_SIZE, i * IMG_SIZE);
 	if (!game->count_moves)
 	{
 		game->sprite.down1.current.x = j;
 		game->sprite.down1.current.y = i;
 	}
+}
+
+void	load_exit(t_game *game, int i, int j)
+{
+	if (game->verify.collectable <= 0)
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ext2.img,
+			j * IMG_SIZE, i * IMG_SIZE);
+	else
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.ext.img,
+			j * IMG_SIZE, i * IMG_SIZE);
 }
 
 void	put_tile(t_game *game, int i, int j)
@@ -73,14 +84,7 @@ void	put_tile(t_game *game, int i, int j)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.tile.img,
 			j * IMG_SIZE, i * IMG_SIZE);
 	if (game->tile_map[i][j].type == EXIT)
-	{
-		if (game->verify.collectable <= 0)
-			mlx_put_image_to_window(game->mlx, game->win, game->sprite.ext2.img,
-				j * IMG_SIZE, i * IMG_SIZE);
-		else
-			mlx_put_image_to_window(game->mlx, game->win, game->sprite.ext.img,
-				j * IMG_SIZE, i * IMG_SIZE);
-	}
+		load_exit(game, i, j);
 	if (game->tile_map[i][j].type == PLAYER)
 		load_player(game, i, j);
 	if (game->tile_map[i][j].type == ITEM)

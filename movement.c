@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 01:24:46 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:41:36 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	get_moves(t_game *game)
 	game->moves = ft_itoa(game->count_moves);
 }
 
-void	move_to_empty(t_game *game, int y_offset, int x_offset)
+void	move_to_empty(t_game *game, int y_offset, int x_offset, char dir)
 {
 	int	y_now;
 	int	x_now;
 
+	if (dir == ITEM)
+		game->verify.collectable--;
 	y_now = game->sprite.down1.current.y;
 	x_now = game->sprite.down1.current.x;
 	game->tile_map[y_now][x_now].type = EMPTY;
@@ -58,9 +60,7 @@ int	move_to(t_game *game, int y_offset, int x_offset)
 	dir = game->tile_map[y_now + y_offset][x_now + x_offset].type;
 	if (dir != WALL && dir != EXIT && dir != ENEMY)
 	{
-		if (dir == ITEM)
-			game->verify.collectable--;
-		move_to_empty(game, y_offset, x_offset);
+		move_to_empty(game, y_offset, x_offset, dir);
 		return (1);
 	}
 	else if (dir == EXIT && game->verify.collectable <= 0)
@@ -70,9 +70,7 @@ int	move_to(t_game *game, int y_offset, int x_offset)
 	}
 	else if (dir == ENEMY)
 	{	
-		printf("%d\n",game->sprite.down1.health);
 		game->sprite.down1.health = 0;
-		printf("%d\n",game->sprite.down1.health);
 		game->run = 0;
 		return (0);
 	}
@@ -84,7 +82,6 @@ int	input(int key, t_game *game)
 	int	y_offset;
 	int	x_offset;
 
-	game->lastkey = key;
 	y_offset = 0;
 	x_offset = 0;
 	if (key == 65307)
@@ -101,7 +98,10 @@ int	input(int key, t_game *game)
 			x_offset = -1;
 	}
 	if (game->run)
+	{
+		game->lastkey = key;
 		if (move_to(game, y_offset, x_offset))
 			game->frame = 1;
+	}
 	return (0);
 }
