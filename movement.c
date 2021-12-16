@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 23:50:14 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:24:46 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	move_to(t_game *game, int y_offset, int x_offset)
 	y_now = game->sprite.down1.current.y;
 	x_now = game->sprite.down1.current.x;
 	dir = game->tile_map[y_now + y_offset][x_now + x_offset].type;
-	if (dir != WALL && dir != EXIT)
+	if (dir != WALL && dir != EXIT && dir != ENEMY)
 	{
 		if (dir == ITEM)
 			game->verify.collectable--;
@@ -67,6 +67,14 @@ int	move_to(t_game *game, int y_offset, int x_offset)
 	{
 		move_to_exit(game, y_offset, x_offset);
 		return (1);
+	}
+	else if (dir == ENEMY)
+	{	
+		printf("%d\n",game->sprite.down1.health);
+		game->sprite.down1.health = 0;
+		printf("%d\n",game->sprite.down1.health);
+		game->run = 0;
+		return (0);
 	}
 	return (0);
 }

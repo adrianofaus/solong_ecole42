@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 20:11:28 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 00:42:10 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define PATH_EXT "./sprites/exit.xpm"
 # define PATH_EXT2 "./sprites/exit2.xpm"
 # define PATH_ENEMY "./sprites/enemy.xpm"
+# define PATH_DEAD "./sprites/dead.xpm"
 
 # define IMG_SIZE 32
 
@@ -39,7 +40,7 @@ typedef enum e_tiletype
 	PLAYER = 'P',
 	EXIT = 'E',
 	ENEMY = 'A',
-	FOLLOWER = 'F'
+	FOLLOWER = 'F',
 }	t_tiletype;
 
 typedef struct s_vector
@@ -65,6 +66,7 @@ typedef struct s_player
 	void		*img;
 	int			width;
 	int			height;
+	int			health;
 	t_vector	current;
 	char		t_up;
 	char		t_down;
@@ -84,6 +86,7 @@ typedef struct s_sprite
 	t_image		ext2;
 	t_image		item;
 	t_image		enemy;
+	t_image		dead;
 	t_image		collectable;
 }			t_sprite;
 

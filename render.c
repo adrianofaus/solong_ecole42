@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/15 20:15:05 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 01:30:43 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,17 @@ void	get_images(t_game *game)
 			&(game->sprite.ext2.width), &(game->sprite.ext2.height));
 	game->sprite.enemy.img = mlx_xpm_file_to_image(game->mlx, PATH_ENEMY,
 			&(game->sprite.enemy.width), &(game->sprite.enemy.height));
+	game->sprite.dead.img = mlx_xpm_file_to_image(game->mlx, PATH_DEAD,
+			&(game->sprite.dead.width), &(game->sprite.dead.height));
 }
 
 void	load_player(t_game *game, int i, int j)
 {
+	if (!game->sprite.down1.health)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->sprite.dead.img,
+			j * IMG_SIZE, i * IMG_SIZE);
+	}
 	if (!game->lastkey || game->lastkey == 115)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.down1.img,
 			j * IMG_SIZE, i * IMG_SIZE);
