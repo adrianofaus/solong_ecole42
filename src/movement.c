@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:59:07 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 03:27:55 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 21:07:49 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	input(int key, t_game *game)
 	{
 		game->lastkey = key;
 		if (move_to(game, y_offset, x_offset))
-			game->frame = 1;
+			get_moves(game);
 	}
 	return (0);
 }

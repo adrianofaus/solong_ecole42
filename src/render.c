@@ -6,7 +6,7 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:57:16 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 03:28:00 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 21:07:56 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,6 @@ void	put_tile(t_game *game, int i, int j)
 	if (game->tile_map[i][j].type == ENEMY)
 		mlx_put_image_to_window(game->mlx, game->win, game->sprite.enemy.img,
 			j * IMG_SIZE, i * IMG_SIZE);
-	if (game->frame)
-	{
-		get_moves(game);
-		game->frame = 0;
-	}
 }
 
 int	load_game(t_game *game)

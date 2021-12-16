@@ -6,11 +6,11 @@
 /*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 09:48:22 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 04:08:28 by afaustin         ###   ########.fr       */
+/*   Updated: 2021/12/16 21:08:24 by afaustin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	axis_init(char	*map, t_game *game)
 {
@@ -52,7 +52,6 @@ int	game_init(char *map, t_game *game)
 {
 	int			is_valid;
 
-	game->frame = 0;
 	game->x_axis = 0;
 	game->y_axis = 0;
 	game->run = 1;
