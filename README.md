@@ -21,3 +21,5 @@
   * Click Save configuration and then Finish
   * Run `export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0`
   * Run xeyes and check if a window appears
+* Inside the `maps` folder there are maps that can be played
+* For instance, run `./so_long ./maps/pdf1.ber`
