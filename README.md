@@ -19,5 +19,5 @@
   * Click Start no client and go to the next page
   * Make sure that the No Access Control box is ticked and go to the next page
   * Click Save configuration and then Finish
-  * Run export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+  * Run `export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0`
   * Run xeyes and check if a window appears
