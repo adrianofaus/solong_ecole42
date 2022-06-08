@@ -23,3 +23,10 @@
   * Run xeyes and check if a window appears
 * Inside the `maps` folder there are maps that can be played
 * For instance, run `./so_long ./maps/pdf1.ber`
+
+### How to play it?
+- Movement
+- W => Move up
+- S => Move down
+- A => Move left
+- D => Move right
