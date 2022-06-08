@@ -1,6 +1,6 @@
-# ![so_longm](https://user-images.githubusercontent.com/63206471/172677363-1a38377a-bf3c-4cd8-95f2-1b16b2fb2dfe.png)
+![so_longm](https://user-images.githubusercontent.com/63206471/172677363-1a38377a-bf3c-4cd8-95f2-1b16b2fb2dfe.png)
 
-So_long
+# So_long
 
 * [Introduction](#introduction)
 * [Notion](#notion-link)
