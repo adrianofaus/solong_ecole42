@@ -26,7 +26,7 @@
 
 ### How to play it?
 * Movement
-   W => Move up
-   S => Move down
-   A => Move left
-   D => Move right
+  * W => Move up
+  * S => Move down
+  * A => Move left
+  * D => Move right
