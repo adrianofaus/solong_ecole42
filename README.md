@@ -16,7 +16,7 @@ This project is a small 2D game with minilibx. I have learned about textures, sp
 ## The project
 The program receives a map
 
-Sample map
+Sample map<br>
 1111111111111111<br>
 1E00000A00000AC1<br>
 1010010100100001<br>
