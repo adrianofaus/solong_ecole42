@@ -33,12 +33,9 @@ If you bump into flames you going to get toasted
 
 You can move using the keyboard
 
-W => Move up
-
-S => Move down
-
-A => Move left
-
+W => Move up<br>
+S => Move down<br>
+A => Move left<br>
 D => Move right
 
 Once all items were collected a door will be open an you can head into it.
