@@ -48,6 +48,8 @@ Of course that I had to deal with a lot of coding in a small range of time and b
 
 
 ### Follow these steps to run the project
+
+```
 * This project only runs on Linux
 * run `sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev`
 * run `make` or `make bonus`
@@ -60,6 +62,7 @@ Of course that I had to deal with a lot of coding in a small range of time and b
   * Run xeyes and check if a window appears
 * Inside the `maps` folder there are maps that can be played
 * For instance, run `./so_long ./maps/pdf1.ber`
+```
 
 ### How to play it?
 The objective is collect all items avoiding the enemys.
