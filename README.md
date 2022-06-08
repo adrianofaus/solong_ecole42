@@ -7,11 +7,19 @@
 * [The Project](#the-project)
 
 ## Introduction
-So_long is a project that introduced me the idea that could I transform my code in a Living Thing. This project was moderate difficulty. Once I had already mastered the use of my Library Forty Two I could play with it and create the base for my own game. The support library to handle graphics that I have used is the Minilibx and  to learn how to use it was the biggest challange along the project.
+So_long is a project that introduced me the idea that I could transform my code in a Living Thing. This project was moderate difficulty.
 
 ## Skills that I have improved
+* Graphics
+* Imperative programming
 
 ## The project
+
+
+## What are my thoughts about the project?
+The biggest challange in this project is learn how to use the Minilibx. This is because, the concept of events and how to handle these events where quite new for me. I had already learned how to deal with callback functions on Libft but I had not truly applied the concepts before.
+I didn't have any difficult dealing with the base for the game because projects that came before this one, were enough to provide me a solid control about my library. 
+Of course that I had to deal with a lot of coding in a small range of time and because of this I couldn't apply all my ideas for the game.
 
 
 ### Follow these steps to run the project
