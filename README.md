@@ -16,7 +16,7 @@ This project is a small 2D game with minilibx. I have learned about textures, sp
 ## The project
 The program receives a map
 
-Sample map<br>
+_Sample map_<br>
 1111111111111111<br>
 1E00000A00000AC1<br>
 1010010100100001<br>
@@ -24,7 +24,7 @@ Sample map<br>
 1P000A000CA0C001<br>
 1111111111111111
 
-Caption
+_Caption_
 * 0 for an empty space
 * 1 for a wall
 * C for a collectible
