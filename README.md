@@ -7,7 +7,7 @@
 * [The Project](#the-project)
 
 ## Introduction
-So_long is a project that introduce us to game design. This project was moderate difficulty. Once I had already mastered the use of my Library Forty Two I could play with it and create the base for my own game. The support library to handle graphics that I used is the Minilibx and learn how to use it was the biggest challange along the project.
+So_long is a project that introduced me the idea that could transform my code in a Living Thing. This project was moderate difficulty. Once I had already mastered the use of my Library Forty Two I could play with it and create the base for my own game. The support library to handle graphics that I used is the Minilibx and learn how to use it was the biggest challange along the project.
 
 ## Skills that I have improved
 
