@@ -35,8 +35,10 @@ Collect all items avoiding the enemys. Once all items were collected a door will
   * D => Move right
 
 If you bump into flames you going to get toasted
+
 ![Dead](https://user-images.githubusercontent.com/63206471/172672626-9e0708a3-f4d9-4f2b-b329-ea8eb1c4929f.gif)
 
 Collect all items to succeed in the game
+
 ![Alive](https://user-images.githubusercontent.com/63206471/172672691-4d6fa51f-82c8-4942-8f69-26a68d3d618e.gif)
 
