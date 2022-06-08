@@ -41,8 +41,6 @@ _Rules of the game_
 * There is a movement counter on the top left side of the screen
 * If the player touches an enemy he dies and the game ends
 
-### Workflow
-
 ### What are my thoughts about the project?
 The biggest challange in this project is learn how to use the Minilibx. This is because, the concept of events and how to handle these events where quite new for me. I had already learned how to deal with callback functions on Libft but I had not truly applied the concepts before.
 I didn't have any difficult dealing with the base for the game because projects that came before this one, were enough to provide me a solid control about my library. 
