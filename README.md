@@ -7,7 +7,7 @@
 * [The Project](#the-project)
 
 ## Introduction
-So_long is a project that introduced me the idea that I could transform my code in a Living Thing. This project was moderate difficulty.
+This project is a small 2D game with minilibx. I have learned about textures, sprites and tiles.
 
 ## Skills that I have improved
 * Graphics
