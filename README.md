@@ -52,7 +52,7 @@ Of course that I had to deal with a lot of coding in a small range of time and b
 ```
 * This project only runs on Linux
 * run `sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev`
-* run `make` or `make bonus`
+* run _make_ or `make bonus`
 * If you are using WSL2 you must have Xming installed and then:
   * Click Multiple windows and go to the next page
   * Click Start no client and go to the next page
