@@ -1,14 +1,15 @@
 ![so_longm](https://user-images.githubusercontent.com/63206471/172677363-1a38377a-bf3c-4cd8-95f2-1b16b2fb2dfe.png)
 
-# So_long
+# So_long A 2D Game
 
 * [Introduction](#introduction)
 * [Notion](#notion-link)
 * [The Project](#the-project)
 
-## Skills that I have improved
-
 ## Introduction
+So_long is a project that introduce us to game design. This project was moderate difficulty. Once I had already mastered the use of my Library Forty Two I could play with it and create the base for my own game. The support library to handle graphics that I used is the Minilibx and learn how to use it was the biggest challange along the project.
+
+## Skills that I have improved
 
 ## The project
 
