@@ -32,6 +32,7 @@ If you bump into flames you going to get toasted
 ![Dead](https://user-images.githubusercontent.com/63206471/172672626-9e0708a3-f4d9-4f2b-b329-ea8eb1c4929f.gif)
 
 You can move using the keyboard
+
 W => Move up
 S => Move down
 A => Move left
