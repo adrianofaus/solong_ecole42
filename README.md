@@ -14,9 +14,25 @@ This project is a small 2D game with minilibx. I have learned about textures, sp
 * Imperative programming
 
 ## The project
+The program receives a map
 
+Sample map
+1111111111111111
+1E00000A00000AC1
+1010010100100001
+1010010010101011
+1P000A000CA0C001
+1111111111111111
 
-## What are my thoughts about the project?
+Caption
+* 0 for an empty space
+* 1 for a wall
+* C for a collectible
+* E for a map exit
+* P for the player's starting position
+* A for adversary
+
+### What are my thoughts about the project?
 The biggest challange in this project is learn how to use the Minilibx. This is because, the concept of events and how to handle these events where quite new for me. I had already learned how to deal with callback functions on Libft but I had not truly applied the concepts before.
 I didn't have any difficult dealing with the base for the game because projects that came before this one, were enough to provide me a solid control about my library. 
 Of course that I had to deal with a lot of coding in a small range of time and because of this I couldn't apply all my ideas for the game.
