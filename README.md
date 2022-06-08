@@ -14,7 +14,7 @@ This project is a small 2D game with minilibx. I have learned about textures, sp
 * Imperative programming
 
 ## The project
-The program receives a map
+The program receives a map with .ber extension
 
 _Sample map_<br>
 1111111111111111<br>
@@ -31,6 +31,17 @@ _Caption_
 * E for a map exit
 * P for the player's starting position
 * A for adversary
+
+The game is rendered based on a map with these configuration with the help of Minilibx that provides tools that put tiles in the windows at CPU time.
+
+_Rules of the game_
+* The player can only be moved by `WASD`
+* The player cannot move into walls
+* The game ends if all items were collected
+* There is a movement counter on the top left side of the screen
+* If the player touches an enemy he dies and the game ends
+
+### Workflow
 
 ### What are my thoughts about the project?
 The biggest challange in this project is learn how to use the Minilibx. This is because, the concept of events and how to handle these events where quite new for me. I had already learned how to deal with callback functions on Libft but I had not truly applied the concepts before.
