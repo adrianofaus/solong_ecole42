@@ -6,7 +6,7 @@ CC 				:= clang
 RM 				:= rm -rf
 
 CFLAGS 			:= -Wall -Wextra -Werror -g
-MLXFLAGS		:= -lmlx -Imlx -lXext -lX11
+MLXFLAGS		:= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 PATH_SRC 		:= ./src/
 PATH_SRC_BONUS	:= ./src_bonus/

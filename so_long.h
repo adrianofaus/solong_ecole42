@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afaustin <afaustin@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: adrianofaus <adrianofaus@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:53:18 by afaustin          #+#    #+#             */
-/*   Updated: 2021/12/16 21:09:51 by afaustin         ###   ########.fr       */
+/*   Updated: 2022/06/07 18:57:50 by adrianofaus      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "./mlx_linux/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
